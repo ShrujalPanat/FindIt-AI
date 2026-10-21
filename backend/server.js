@@ -4,7 +4,7 @@ const Database = require("better-sqlite3");
 const bcrypt = require("bcrypt");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -401,6 +401,6 @@ app.post("/api/login", async (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`FindIt AI backend running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
